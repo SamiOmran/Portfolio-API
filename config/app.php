@@ -123,4 +123,13 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'seeders' => [
+        'data' => env('DATA_COUNT', 400),
+        'users' => env('USERS_COUNT', 120),
+    ],
+
+    'admin' => [
+        'name' => env('ADMIN_NAME', 'samiimran2016@gmail.com'),
+        'email' => env('ADMIN_EMAIL', 'Sami Imran'),
+    ],
 ];

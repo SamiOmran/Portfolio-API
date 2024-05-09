@@ -2,9 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
+use Database\Seeders\Test\{
+    UserSeeder,
+};
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +18,31 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $resumesPath = 'app/public/resumes';
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        if (Storage::exists($resumesPath)) {
+            Storage::deleteDirectory($resumesPath);
+            Storage::makeDirectory($resumesPath);
+        }
+
+        $this->call([
+            UserSeeder::class,
         ]);
+
+        $email = config('app.admin.email');
+
+        $admin = User::where('email', $email)->first();
+
+        if (! $admin) {
+            $name = config('app.admin.name');
+            User::create([
+                'name' => $name,
+                'email' => $email,
+                'password' => '12345678',
+                'about_me' => '',
+                'title' => 'Backend developer',
+                'resume' => 'Palestine',
+            ]);
+        }
     }
 }
