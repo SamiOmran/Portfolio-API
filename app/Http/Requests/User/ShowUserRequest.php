@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Requests\Project;
+namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ViewProjectRequest extends FormRequest
+class ShowUserRequest extends FormRequest
 {
     /**
-     * Determine if the Project is authorized to make this request.
+     * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
