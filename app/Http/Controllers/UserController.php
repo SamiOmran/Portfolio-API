@@ -2,25 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\User\{
-    DestroyUserRequest,
-    IndexUserRequest,
-    ShowUserRequest,
-    StoreUserRequest,
-    UpdateUserRequest,
-};
-use App\Http\Resources\User\{
-    ListUsersResource,
-    ShowUserResource,
-};
+use App\Http\Requests\User\DestroyUserRequest;
+use App\Http\Requests\User\IndexUserRequest;
+use App\Http\Requests\User\ShowUserRequest;
+use App\Http\Requests\User\StoreUserRequest;
+use App\Http\Requests\User\UpdateUserRequest;
+use App\Http\Resources\User\ListUsersResource;
+use App\Http\Resources\User\ShowUserResource;
 use App\Models\User;
 use App\Services\{
     UserServices,
 };
-use Illuminate\Http\{
-    JsonResponse,
-    Request,
-};
+use Illuminate\Http\JsonResponse;
 
 class UserController extends Controller
 {

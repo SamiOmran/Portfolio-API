@@ -19,7 +19,7 @@ class Project extends Model
         'repo',
         'description',
         'developer',
-        
+
     ];
 
 }

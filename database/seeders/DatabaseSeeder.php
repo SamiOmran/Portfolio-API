@@ -8,7 +8,6 @@ use Database\Seeders\Test\{
     UserSeeder,
 };
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
