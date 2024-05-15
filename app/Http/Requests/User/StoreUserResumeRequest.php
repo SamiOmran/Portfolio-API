@@ -3,8 +3,9 @@
 namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\File;
 
-class DestroyUserRequest extends FormRequest
+class StoreUserResumeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +23,7 @@ class DestroyUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'resume' => ['required', 'file', File::types(['pdf', 'docs'])]
         ];
     }
 }

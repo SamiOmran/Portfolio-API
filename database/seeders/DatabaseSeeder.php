@@ -34,10 +34,11 @@ class DatabaseSeeder extends Seeder
 
         if (! $admin) {
             $name = config('app.admin.name');
+            $family = config('app.admin.family');
             User::create([
-                'name' => $name,
+                'first_name' => $name,
+                'last_name' => $family,
                 'email' => $email,
-                'password' => '12345678',
                 'about_me' => '',
                 'title' => 'Backend developer',
                 'resume' => 'Palestine',

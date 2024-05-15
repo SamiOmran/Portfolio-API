@@ -6,7 +6,6 @@ namespace App\Services;
 
 use App\DTOs\PaginationDTO;
 use App\DTOs\UserDTO;
-use App\Models\Article;
 use App\Models\User;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -22,6 +21,7 @@ class UserServices
 
     public function storeUser(UserDTO $userDTO): User
     {
+        dd($userDTO);
         return User::create($userDTO->toArray());
     }
 
@@ -38,13 +38,5 @@ class UserServices
     public function destroyUser(User $user): ?bool
     {
         return $user->delete();
-    }
-
-    public function getArticlesCount(User $user): int
-    {
-        // $count = Article::where('author', $user->id)->count();
-        $count = $user->articles_count;
-
-        return $count;
     }
 }

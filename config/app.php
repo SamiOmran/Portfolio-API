@@ -125,11 +125,12 @@ return [
 
     'seeders' => [
         'data' => env('DATA_COUNT', 400),
-        'users' => env('USERS_COUNT', 120),
+        'users' => env('USERS_COUNT', 5),
     ],
 
     'admin' => [
-        'name' => env('ADMIN_NAME', 'samiimran2016@gmail.com'),
-        'email' => env('ADMIN_EMAIL', 'Sami Imran'),
+        'name' => env('ADMIN_NAME', 'Sami'),
+        'family' => env('ADMIN_FAMILY', 'Imran'),
+        'email' => env('ADMIN_EMAIL', 'samiimran2016@gmail.com'),
     ],
 ];
