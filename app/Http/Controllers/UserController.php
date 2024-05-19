@@ -9,6 +9,7 @@ use App\Http\Requests\User\{
     StoreUserRequest,
     UpdateUserRequest,
 };
+use App\Http\Requests\User\StoreUserResumeRequest;
 use App\Http\Resources\User\{
     ListUsersResource,
     ShowUserResource,
@@ -39,6 +40,13 @@ class UserController extends APIController
         $user = $service->storeUser($request->toDTO());
 
         return $this->sendResponse('Success storing new user', 201, new ShowUserResource($user));
+    }
+
+    public function storeResume(StoreUserResumeRequest $request, User $user, UserServices $service): JsonResponse
+    {
+        $user = $service->storeUserResume($user, $request);
+
+        return $this->sendResponse('Success storing user resume', 201, new ShowUserResource($user));
     }
 
     /**

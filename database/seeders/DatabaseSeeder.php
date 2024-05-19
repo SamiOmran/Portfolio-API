@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $resumesPath = 'app/public/resumes';
+        $resumesPath = config('app.resumes_dir.path');
 
         if (Storage::exists($resumesPath)) {
             Storage::deleteDirectory($resumesPath);
@@ -41,7 +41,6 @@ class DatabaseSeeder extends Seeder
                 'email' => $email,
                 'about_me' => '',
                 'title' => 'Backend developer',
-                'resume' => 'Palestine',
             ]);
         }
     }

@@ -7,7 +7,9 @@ namespace App\Services;
 use App\DTOs\PaginationDTO;
 use App\DTOs\UserDTO;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Storage;
 
 class UserServices
 {
@@ -21,8 +23,25 @@ class UserServices
 
     public function storeUser(UserDTO $userDTO): User
     {
-        dd($userDTO);
         return User::create($userDTO->toArray());
+    }
+
+    public function storeUserResume(User $user, Request $request): User
+    {
+        $path = config('app.resumes_dir.path');
+        $resumeFile = $request->file('resume');
+        $resumeName = $resumeFile->getClientOriginalName();
+
+        $user->update(['resume' => storage_path($path) . '\\' . $resumeName]);
+        $user->save();
+
+        Storage::putFileAs(
+            'public\resumes\\',
+            $resumeFile,
+            $resumeName,
+        );
+
+        return $user;
     }
 
     public function showUser(User $user): User

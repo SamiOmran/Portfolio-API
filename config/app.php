@@ -133,4 +133,8 @@ return [
         'family' => env('ADMIN_FAMILY', 'Imran'),
         'email' => env('ADMIN_EMAIL', 'samiimran2016@gmail.com'),
     ],
+
+    'resumes_dir' => [
+        'path' => env('RESUMES_PATH', 'app\public\resumes')
+    ]
 ];

@@ -14,4 +14,5 @@ Route::group(['prefix' => 'v1/'], function () {
         'users' => UserController::class,
         'projects' => ProjectController::class,
     ]);
+    Route::post('users/{user}/resume', [UserController::class, 'storeResume'])->name('users.storeResume');
 });

@@ -30,7 +30,7 @@ class UserFactory extends Factory
             'about_me' => fake()->realText(),
             'resume' => fake()->file(
                 sourceDirectory: public_path(),
-                targetDirectory: storage_path('app\public')),
+                targetDirectory: storage_path(config('app.resumes_dir.path'))),
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
         ];

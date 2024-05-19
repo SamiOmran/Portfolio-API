@@ -14,8 +14,9 @@ class UserDTO extends Data
         public readonly string|Optional $last_name,
         public readonly string|Optional $email,
         public readonly string|Optional $title,
-        public readonly string|Optional $aboutMe,
-        ) {
+        public readonly string|Optional $about_me,
+        public readonly string|Optional $resume,
+    ) {
         //
     }
 }
