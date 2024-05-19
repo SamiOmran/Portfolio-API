@@ -14,6 +14,15 @@ class ListUsersResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        /**
+         * @var  \App\Models\User
+         */
+        $user = $this;
+
+        return [
+            'id' => $user->id,
+            'first_name' => $user->first_name,
+            'title' => $user->title,
+        ];
     }
 }
